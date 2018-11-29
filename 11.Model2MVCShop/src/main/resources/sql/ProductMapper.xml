@@ -27,9 +27,10 @@
 		
 		<select id="getProduct"		parameterType="int"	resultMap="productSelectMap">
 		SELECT
-		prod_no , prod_name , prod_detail , manufacture_day ,  price ,  image_file , reg_date 		
-		FROM product
-		WHERE prod_no = #{value}
+		p.prod_no , p.prod_name , p.prod_detail , p.manufacture_day ,  p.price ,  p.image_file , p.reg_date, NVL(t.tran_status_code, '0') AS tran_status_code
+		FROM product p, transaction t
+		WHERE p.prod_no=t.prod_no(+)
+		AND p.prod_no = #{value}
 		</select>
 		
 		<update	id="updateProduct"	parameterType="product" >

@@ -45,7 +45,7 @@ public class ProductRestController {
 		
 	}
 	
-	@RequestMapping(value="json/getProduct/{prodNo}", method=RequestMethod.GET)
+	@RequestMapping(value="json/getProduct/{prodNo}/{menu}", method=RequestMethod.GET)
 	public Product getProduct( @PathVariable String prodNo ) throws Exception {
 		
 		System.out.println("/product/getProduct : GET");
@@ -75,7 +75,7 @@ public class ProductRestController {
 	public Map listProductPOST( @RequestBody Search search) throws Exception{
 		
 		System.out.println("listProduct : GET/POST");
-		
+		System.out.println(search);
 		if(search.getCurrentPage() ==0 ){
 			search.setCurrentPage(1);
 		}
@@ -87,7 +87,7 @@ public class ProductRestController {
 		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
 		System.out.println(resultPage);
 		
-		//map.put("list", map.get("list"));
+		map.put("list", map.get("list"));
 		map.put("resultPage", resultPage);
 		map.put("search", search);
 		return map;

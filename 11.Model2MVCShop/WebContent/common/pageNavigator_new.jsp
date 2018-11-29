@@ -3,7 +3,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
- 
 <div class="container text-center">
 		 
 		 <nav>
@@ -53,26 +52,4 @@
 		  </ul>
 		</nav>
 		
-</div>
- 
-
-
-<div class="container">
-		<nav>
-		  <ul class="pager">
-		    <li><a href="#">Previous</a></li>
-		    <li><a href="#">Next</a></li>
-		  </ul>
-		</nav>
-</div>
-
-
-<div class="container">
-		<nav>
-		  <ul class="pager">
-		    <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-		    <!-- <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>  -->
-		    <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
-		  </ul>
-		</nav>
 </div>

@@ -59,13 +59,6 @@ public class Search {
 		return (getCurrentPage()-1)*getPageSize()+1;
 	}
 	
-	@Override
-	public String toString() {
-		return "Search [currentPage=" + currentPage + ", searchCondition="
-				+ searchCondition + ", searchKeyword=" + searchKeyword
-				+ ", pageSize=" + pageSize + ", endRowNum=" + endRowNum
-				+ ", startRowNum=" + startRowNum + "]";
-	}
 //==> 추가기능1
 	public String getSortPrice() {
 		return sortPrice;
@@ -74,4 +67,13 @@ public class Search {
 	public void setSortPrice(String sortPrice) {
 		this.sortPrice = sortPrice;
 	}
+
+	@Override
+	public String toString() {
+		return "Search [currentPage=" + currentPage + ", searchCondition=" + searchCondition + ", searchKeyword="
+				+ searchKeyword + ", sortPrice=" + sortPrice + ", pageSize=" + pageSize + ", endRowNum=" + endRowNum
+				+ ", startRowNum=" + startRowNum + "]";
+	}
+	
+	
 }
