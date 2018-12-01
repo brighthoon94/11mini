@@ -3,6 +3,7 @@ package com.model2.mvc.web.product;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -49,12 +50,19 @@ public class ProductController {
 															@RequestParam("fileData") MultipartFile mtfFile ) throws Exception {
 		
 		System.out.println("/addProduct : POST");
+		
+		//FileUpload
 		String url = "C:\\Users\\Bit\\git\\repository2\\11.Model2MVCShop\\WebContent\\images\\uploadFiles";
-		String fileData = mtfFile.getOriginalFilename();
-		File file = new File(url, fileData);
+		String fileName = mtfFile.getOriginalFilename();
+		String deleteFileName = null;
+		deleteFileName = fileName.substring(fileName.lastIndexOf("."));
+		String storedFileName = UUID.randomUUID().toString().replaceAll("-", "")+deleteFileName;
+		File file = new File(url, storedFileName);
 		mtfFile.transferTo(file);
-		System.out.println("filename :"+fileData);
-		product.setFileName(fileData);
+		System.out.println("filename :"+storedFileName);
+		product.setFileName(storedFileName);
+		
+		//Business Logic ผ๖วเ
 		product.setManuDate(product.getManuDate().replace("-", ""));
 		productService.addProduct(product);
 		
@@ -105,11 +113,15 @@ public class ProductController {
 		System.out.println("updateProduct : POST");
 		//Business Logic
 		String url = "C:\\Users\\Bit\\git\\repository2\\11.Model2MVCShop\\WebContent\\images\\uploadFiles";
-		String fileData = mtfFile.getOriginalFilename();
-		File file = new File(url, fileData);
+		String fileName = mtfFile.getOriginalFilename();
+		String deleteFileName = null;
+		deleteFileName = fileName.substring(fileName.lastIndexOf("."));
+		String storedFileName = UUID.randomUUID().toString().replaceAll("-", "")+deleteFileName;
+		File file = new File(url, storedFileName);
 		mtfFile.transferTo(file);
-		System.out.println("filename :"+fileData);
-		product.setFileName(fileData);
+		System.out.println("filename :"+storedFileName);
+		product.setFileName(storedFileName);
+		
 		productService.updateProduct(product);
 		
 		return "redirect:/product/getProduct?prodNo="+product.getProdNo()+"&menu="+menu+"&fileName="+product.getFileName();
