@@ -85,7 +85,7 @@ $( function() {
 	<!--  화면구성 div Start /////////////////////////////////////-->
 	<div class="container">
 	
-	<h3 class="bg-inverse text-left">판매상품등록</h1>
+	<h3 class="bg-inverse text-left">판매상품등록</h3>
 	<br/>
 	<form name="form-horizontal" enctype="multipart/form-data">
 	<br/>
