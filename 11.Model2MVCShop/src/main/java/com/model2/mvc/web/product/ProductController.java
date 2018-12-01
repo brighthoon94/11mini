@@ -49,7 +49,7 @@ public class ProductController {
 															@RequestParam("fileData") MultipartFile mtfFile ) throws Exception {
 		
 		System.out.println("/addProduct : POST");
-		String url = "C:\\workspace\\10.Model2MVCShop(Ajax)\\WebContent\\images\\uploadFiles\\";
+		String url = "C:\\Users\\Bit\\git\\repository2\\11.Model2MVCShop\\WebContent\\images\\uploadFiles";
 		String fileData = mtfFile.getOriginalFilename();
 		File file = new File(url, fileData);
 		mtfFile.transferTo(file);
@@ -88,7 +88,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="updateProductView", method=RequestMethod.GET)
-	public String updateProductView( @RequestParam("prodNo") int prodNo, Model model) throws Exception {
+	public String updateProductView( @RequestParam("prodNo") int prodNo,  Model model) throws Exception {
 		System.out.println("updateProductView : GET");
 		
 		Product product = productService.getProduct(prodNo);
@@ -100,13 +100,19 @@ public class ProductController {
 	
 	@RequestMapping(value="updateProduct", method=RequestMethod.POST)
 	public String updateProduct( @ModelAttribute("product") Product product ,
-																	@RequestParam("menu") String menu) throws Exception{
+																	@RequestParam("menu") String menu, @RequestParam("fileData") MultipartFile mtfFile) throws Exception{
 
 		System.out.println("updateProduct : POST");
 		//Business Logic
+		String url = "C:\\Users\\Bit\\git\\repository2\\11.Model2MVCShop\\WebContent\\images\\uploadFiles";
+		String fileData = mtfFile.getOriginalFilename();
+		File file = new File(url, fileData);
+		mtfFile.transferTo(file);
+		System.out.println("filename :"+fileData);
+		product.setFileName(fileData);
 		productService.updateProduct(product);
 		
-		return "redirect:/product/getProduct?prodNo="+product.getProdNo()+"&menu="+menu;
+		return "redirect:/product/getProduct?prodNo="+product.getProdNo()+"&menu="+menu+"&fileName="+product.getFileName();
 	}
 	
 	@RequestMapping(value="listProduct")

@@ -141,12 +141,13 @@
                 };
 
                 console.log("${param.menu}");
-                if (${param.menu == 'search'} && prodTranCode != "" && role == 'admin') {
+                console.log("${prodTranCode}")
+                if (${param.menu == 'search'} && role == 'admin') {
                     self.location = "/product/getProduct?prodNo=" + prodNo + "&menu=${param.menu}"
                     console.log("상품관리 들어감요");
                     console.log("${param.menu == 'search'}");
                 }
-                if (${param.menu == 'manage'}) {
+                if (${param.menu == 'manage'} && prodTranCode == '0') {
                     self.location = "/product/updateProductView?prodNo=" + prodNo + "&menu=${param.menu}"
                     console.log("판매상품관리 들어감요");
                 };

@@ -108,7 +108,7 @@ $( function() {
   <div class="form-group">
     <label for="fileData">File input</label>
     <input type="file" id="fileData" name="fileData">
-    <p class="help-block">제품명과 동일하고 선명한 사진을 업로드 해주세요.</p>
+    <p class="help-block">*제품명과 동일하고 선명한 사진을 업로드 해주세요.</p>
   </div>
    <button type="submit" class="btn btn-primary" id="btn01">등록</button>
 
