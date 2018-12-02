@@ -51,11 +51,11 @@
 		$( "#delivery" ).on("click" , function() {
 			//alert( "바꾸러간다.");
 			var prodNo=$(this).data("param");
-			alert(prodNo);
+			//alert(prodNo);
 			self.location = "/purchase/updateTranCode?prodNo="+prodNo+"&tranCode=3"
 		});
 		
-	$( "#buy" ).on("click" , function() {
+	$( "tr td:nth-child(1)" ).on("click" , function() {
 		var tranNo=$(this).data("param1");
 		//alert(tranNo);
 		self.location = "/purchase/getPurchase?tranNo="+tranNo
@@ -74,6 +74,7 @@
 
 	<div class="page-header text-info">
 		<h3>구매목록조회</h3>
+		<h5 class="text-muted">물품번호를 클릭하여 확인및 수정이 가능합니다.</h5>
 	</div>
 	
 	<div class="row">
@@ -104,7 +105,7 @@
 		<c:forEach var="purchase" items="${list}">
 			<c:set var="i" value="${ i+1 }" />
 				<tr>
-				<td align="center" id="buy" data-param1="${purchase.tranNo}">${i }</td>
+				<td align="center" id="buy" data-param1="${purchase.tranNo}">${purchase.tranNo}</td>
 				<td align="left">${purchase.buyer.userId}</td>
 				<td align="left">${purchase.receiverName}</td>
 				<td align="left">${purchase.receiverPhone}</td>

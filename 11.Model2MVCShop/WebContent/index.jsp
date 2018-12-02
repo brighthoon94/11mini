@@ -87,70 +87,69 @@
    	
 	<!--  화면구성 div Start /////////////////////////////////////-->
 	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+	
+	<!--페이지-->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>
+	<!--페이지-->
+
+	<div class="carousel-inner">
+		<!--슬라이드1-->
+		<div class="item active"> 
+			<img src="/images/uploadFiles/sea_lake.jpg" style="width:100%" alt="First slide">
+			<div class="container">
+				<div class="carousel-caption">
+					<h1>Mini 회센타</h1>
+					<p>텍스트 1</p>
+				</div>
+			</div>
+		</div>
+		<!--슬라이드1-->
+
+		<!--슬라이드2-->
+		<div class="item"> 
+			<img src="/images/uploadFiles/papers.jpg" style="width:100%" data-src="" alt="Second slide">
+			<div class="container">
+				<div class="carousel-caption">
+					<h1>Mini 회센타</h1>
+					<p>텍스트 2</p>
+				</div>
+			</div>
+		</div>
+		<!--슬라이드2-->
 		
+		<!--슬라이드3-->
+		<div class="item"> 
+			<img src="/images/uploadFiles/slide3.jpg" style="width:100%" data-src="" alt="Third slide">
+			<div class="container">
+				<div class="carousel-caption">
+					<h1>Mini 회센타</h1>
+					<p>텍스트 3</p>
+				</div>
+			</div>
+		</div>
+		<!--슬라이드3-->
+	</div>
+	
+	<!--이전, 다음 버튼-->
+	<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> 
+	<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> 
+</div>
 		<!-- 다단레이아웃  Start /////////////////////////////////////-->
 		<div class="row">
-	
-			<!--  Menu 구성 Start /////////////////////////////////////-->     	
-			<div class="col-md-3">
-		        
-		       	<!--  회원관리 목록에 제목 -->
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<i class="glyphicon glyphicon-heart"></i> 회원관리
-         			</div>
-         			<!--  회원관리 아이템 -->
-					<ul class="list-group">
-						 <li class="list-group-item">
-						 	<a href="#">개인정보조회</a> <i class="glyphicon glyphicon-ban-circle"></i>
-						 </li>
-						 <li class="list-group-item">
-						 	<a href="#">회원정보조회</a> <i class="glyphicon glyphicon-ban-circle"></i>
-						 </li>
-					</ul>
-		        </div>
-               
-               
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-							<i class="glyphicon glyphicon-briefcase"></i> 판매상품관리
-         			</div>
-					<ul class="list-group">
-						 <li class="list-group-item">
-						 	<a href="#">판매상품등록</a> <i class="glyphicon glyphicon-ban-circle"></i>
-						 </li>
-						 <li class="list-group-item">
-						 	<a href="#">판매상품관리</a> <i class="glyphicon glyphicon-ban-circle"></i>
-						 </li>
-					</ul>
-		        </div>
-               
-               
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-							<i class="glyphicon glyphicon-shopping-cart"></i> 상품구매
-	    			</div>
-					<ul class="list-group">
-						 <li class="list-group-item"><a href="#">상품검색</a></li>
-						  <li class="list-group-item">
-						  	<a href="#">구매이력조회</a> <i class="glyphicon glyphicon-ban-circle"></i>
-						  </li>
-						 <li class="list-group-item">
-						 	<a href="#">최근본상품</a> <i class="glyphicon glyphicon-ban-circle"></i>
-						 </li>
-					</ul>
-				</div>
-				
-			</div>
-			<!--  Menu 구성 end /////////////////////////////////////-->   
+		
 
 	 	 	<!--  Main start /////////////////////////////////////-->   		
-	 	 	<div class="col-md-9">
+	 	 	<div class="col-md-12">
 				<div class="jumbotron">
-			  		<h1>Model2 MVC Shop</h1>
-			  		<p>로그인 후 사용가능...</p>
-			  		<p>로그인 전 검색만 가능합니다.</p>
-			  		<p>회원가입 하세요.</p>
+			  		<h1 class="text-center">Model2 MVC Shop</h1>
+			  		<p class="text-center">로그인 후 사용가능...</p>
+			  		<p class="text-center">로그인 전 검색만 가능합니다.</p>
+			  		<p class="text-center">회원가입 하세요.</p>
 			  		
 			  		<div class="text-center">
 			  			<a class="btn btn-info btn-lg" href="#" role="button">회원가입</a>

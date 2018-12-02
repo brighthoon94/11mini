@@ -6,16 +6,32 @@
 <head>
 
 <title>구매정보 수정</title>
-    <link rel="stylesheet" href="/css/admin.css" type="text/css">
- 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-	 
-<script type="text/javascript" src="../javascript/calendar.js">
+   <!--  ///////////////////////// Bootstrap, jQuery CDN ////////////////////////// -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    
+
+
+    <!-- Bootstrap Dropdown Hover CSS -->
+    <link href="/css/animate.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-dropdownhover.min.css" rel="stylesheet">
+    <!-- Bootstrap Dropdown Hover JS -->
+    <script src="/javascript/bootstrap-dropdownhover.min.js"></script>
+
+
+    <!-- jQuery UI toolTip 사용 CSS-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- jQuery UI toolTip 사용 JS-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!--  ///////////////////////// CSS ////////////////////////// -->	
+	<style>
+	  body {
+            padding-top : 50px;
+        }
+    </style>
+<script type="text/javascript">
 $(function() {
 	 $( "td.ct_btn01:contains('수정')" ).on("click" , function() {
 		 self.location = "/purchase/updatePurchaseView?tranNo=${purchase.tranNo}";

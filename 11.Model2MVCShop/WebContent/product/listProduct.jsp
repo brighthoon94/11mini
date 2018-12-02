@@ -105,11 +105,6 @@
         });
     });
         //===========================검색======================================================
-        $(function() {
-            $(".ct_list_pop td:nth-child(3)").css("color", "red");
-            $("h7").css("color", "red");
-            $(".ct_list_pop:nth-child(4n+6)").css("background-color", "whitesmoke");
-
             $("#btn_search:contains('검색')").on("click", function() {
             	$("#currentPage").val(currentPage)
     			$("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${param.menu }").submit();
