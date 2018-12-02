@@ -29,7 +29,17 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 	
 	<!--  ///////////////////////// CSS ////////////////////////// -->
-	<style></style>
+	<style>
+	.carousel-inner { 
+	height:50%; 
+	} 
+	.carousel-inner > .item > img, 
+	.carousel-inner > .item > a > img { 
+    width: 100%; 
+    margin: auto; 
+    min-height:30px; 
+} 
+	</style>
    	
    	<!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
@@ -100,11 +110,11 @@
 	<div class="carousel-inner">
 		<!--슬라이드1-->
 		<div class="item active"> 
-			<img src="/images/uploadFiles/sea_lake.jpg" style="width:100%" alt="First slide">
+			<img src="/images/slide/sea_lake.jpg" style="width:%" alt="First slide">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1>Mini 회센타</h1>
-					<p>텍스트 1</p>
+					<p>다양한 어종을 싼 가격에!</p>
 				</div>
 			</div>
 		</div>
@@ -112,11 +122,11 @@
 
 		<!--슬라이드2-->
 		<div class="item"> 
-			<img src="/images/uploadFiles/papers.jpg" style="width:100%" data-src="" alt="Second slide">
+			<img src="/images/slide/papers.jpg" style="width:100%" data-src="" alt="Second slide">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1>Mini 회센타</h1>
-					<p>텍스트 2</p>
+					<p>맛있는 회 한사발 하시지예</p>
 				</div>
 			</div>
 		</div>
@@ -124,11 +134,11 @@
 		
 		<!--슬라이드3-->
 		<div class="item"> 
-			<img src="/images/uploadFiles/slide3.jpg" style="width:100%" data-src="" alt="Third slide">
+			<img src="/images/slide/slide3.jpg" style="width:100%" data-src="" alt="Third slide">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1>Mini 회센타</h1>
-					<p>텍스트 3</p>
+					<p>항상 감사합니다.</p>
 				</div>
 			</div>
 		</div>
