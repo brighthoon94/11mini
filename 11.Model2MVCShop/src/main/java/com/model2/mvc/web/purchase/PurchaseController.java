@@ -131,7 +131,7 @@ public class PurchaseController {
 		purchase.setTranCode(tranCode);
 		purchaseService.updateTranCode(purchase);
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("redirect:/product/listProduct?menu=manage");
+		modelAndView.setViewName("redirect:/product/listProduct?menu=manage&role=admin");
 		return modelAndView;
 	}
 	

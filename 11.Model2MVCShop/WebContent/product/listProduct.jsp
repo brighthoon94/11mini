@@ -156,9 +156,9 @@
         
            $(function() {
             $("#delivery").on("click", function() {
-                alert("바꾸러간다.");
+                //alert("바꾸러간다.");
                 var prodNo = $(this).data("param2");
-                alert(prodNo);
+                //alert(prodNo);
                 self.location = "/purchase/updateTranCodeByProd?prodNo=" + prodNo + "&tranCode=2"
             });
            });

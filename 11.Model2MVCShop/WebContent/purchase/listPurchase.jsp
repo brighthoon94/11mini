@@ -55,7 +55,7 @@
 			self.location = "/purchase/updateTranCode?prodNo="+prodNo+"&tranCode=3"
 		});
 		
-	$( ".ct_list_pop td:nth-child(1)" ).on("click" , function() {
+	$( "#buy" ).on("click" , function() {
 		var tranNo=$(this).data("param1");
 		//alert(tranNo);
 		self.location = "/purchase/getPurchase?tranNo="+tranNo
