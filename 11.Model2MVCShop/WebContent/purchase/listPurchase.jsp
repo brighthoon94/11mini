@@ -1,15 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
-<head>
-<title>구매 목록조회</title>
+<!DOCTYPE html>
 
-<link rel="stylesheet" href="/css/admin.css" type="text/css">
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script type="text/javascript">
+<html lang="ko">
+	
+<head>
+	<meta charset="EUC-KR">
+	
+	<!-- 참조 : http://getbootstrap.com/css/   참조 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!--  ///////////////////////// Bootstrap, jQuery CDN ////////////////////////// -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+	
+	
+	<!-- Bootstrap Dropdown Hover CSS -->
+   <link href="/css/animate.min.css" rel="stylesheet">
+   <link href="/css/bootstrap-dropdownhover.min.css" rel="stylesheet">
+    <!-- Bootstrap Dropdown Hover JS -->
+   <script src="/javascript/bootstrap-dropdownhover.min.js"></script>
+   
+   
+   <!-- jQuery UI toolTip 사용 CSS-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- jQuery UI toolTip 사용 JS-->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<!--  ///////////////////////// CSS ////////////////////////// -->
+	<style>
+	  body {
+            padding-top : 50px;
+        }
+    </style>
+    
+     <!--  ///////////////////////// JavaScript ////////////////////////// -->
+	<script type="text/javascript">
+
 	function fncGetPageList(currentPage) {
 		$("#currentPage").val(currentPage)
 		$("form").attr("method" , "POST").attr("action" , "/purchase/listPurchase").submit();
@@ -17,7 +49,7 @@
 	
 	 $(function() {
 		$( "#delivery" ).on("click" , function() {
-			alert( "바꾸러간다.");
+			//alert( "바꾸러간다.");
 			var prodNo=$(this).data("param");
 			alert(prodNo);
 			self.location = "/purchase/updateTranCode?prodNo="+prodNo+"&tranCode=3"
@@ -33,91 +65,70 @@
 </script>
 </head>
 
-<body bgcolor="#ffffff" text="#000000">
-
-<div style="width: 98%; margin-left: 10px;">
-
-<form name="detailForm">
-
-<table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
-	<tr>
-		<td width="15" height="37"><img src="/images/ct_ttl_img01.gif"width="15" height="37"></td>
-		<td background="/images/ct_ttl_img02.gif" width="100%" style="padding-left: 10px;">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td width="93%" class="ct_ttl01">구매 목록조회</td>
-				</tr>
-			</table>
-		</td>
-		<td width="12" height="37"><img src="/images/ct_ttl_img03.gif"	width="12" height="37"></td>
-	</tr>
-</table>
-
-<table width="100%" border="0" cellspacing="0" cellpadding="0"	style="margin-top: 10px;">
-	<tr>
-		<td colspan="11">전체 ${resultPage.totalCount } 건수, 현재 ${resultPage.currentPage } 페이지
-		</td>
-	</tr>
-	<tr>
-		<td class="ct_list_b" width="100">No</td>
-		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="150">구매자ID</td>
-		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="150">회원명</td>
-		<td class="ct_line02"></td>
-		<td class="ct_list_b">전화번호</td>
-		<td class="ct_line02"></td>
-		<td class="ct_list_b">배송현황</td>
-		<td class="ct_line02"></td>
-		<td class="ct_list_b">정보수정</td>
+<body>
+	<!-- ToolBar Start /////////////////////////////////////-->
+	<jsp:include page="/layout/toolbar.jsp" />
+	<!-- ToolBar End /////////////////////////////////////-->
 	
-	</tr>
-	<tr>
-		<td colspan="11" bgcolor="808285" height="1"></td>
-	</tr>
-	<c:set var="i" value="0"/>
-	<c:forEach var="purchase" items="${list}">
-		<c:set var="i" value="${i+1 }"/>
-		<tr class="ct_list_pop" >
-		<td align="center" id="buy" data-param1="${purchase.tranNo}">
-		${i }</td>
-		<td align="left">
-		</td>
-		<td align="left">${purchase.buyer.userId}</td>
-		<td></td>
-		<td align="left">${purchase.receiverName}</td>
-		<td></td>
-		<td align="left">${purchase.receiverPhone}</td>
-		<td></td>
-		<c:if test = "${purchase.tranCode.trim() == '1' }">
- 		<td align="left">현재 구매완료 상태 입니다.</td>
- 		</c:if>
- 		<c:if test = "${purchase.tranCode.trim() == '2' }">
- 		<td align="left">현재 배송중 상태 입니다.</td>
- 		</c:if>
- 		<c:if test = "${purchase.tranCode.trim() == '3' }">
- 		<td align="left">현재 배송완료 상태 입니다.</td>
- 		</c:if>
-		<td></td>
-		<c:if test = "${purchase.tranCode.trim() == '2' }">
-		<td align="left" id="delivery" data-param="${purchase.purchaseProd.prodNo}">물건도착</td>
-		</c:if>
-	</tr>
-	<tr>
-		<td colspan="11" bgcolor="D6D7D6" height="1"></td>
-	</tr>
-	</c:forEach>
-</table>
+<div class="container">
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
-			<tr>
-				<td align="center">
-					 <input type="hidden" id="currentPage" name="currentPage" value=""/>
-			<jsp:include page="../common/pageNavigator.jsp"/>
-    		</td>
+	<div class="page-header text-info">
+		<h3>구매목록조회</h3>
+	</div>
+	
+	<div class="row">
+	
+		<div class="col-md-6 text-left">
+			   <p class="text-primary">
+			    	전체  ${resultPage.totalCount } 건수, 현재 ${resultPage.currentPage}  페이지
+			   </p>
+		</div>
+	</div>
+	
+	<table class="table table-hover table-striped" >
+	
+	<thead>
+		<tr>
+			<th align="center">물품번호</th>
+			<th align="left" >구매자ID</th>
+			<th align="left" >회원명</th>
+			<th align="left" >전화번호</th>
+			<th align="left" >배송현황</th>
+			<th align="left" >정보수정</th>
 		</tr>
-	</table>      
-</form>
+	</thead>
+	
+	<tbody>
+	
+	<c:set var="i" value="0" />
+		<c:forEach var="purchase" items="${list}">
+			<c:set var="i" value="${ i+1 }" />
+				<tr>
+				<td align="center" id="buy" data-param1="${purchase.tranNo}">${i }</td>
+				<td align="left">${purchase.buyer.userId}</td>
+				<td align="left">${purchase.receiverName}</td>
+				<td align="left">${purchase.receiverPhone}</td>
+				 <td align="left">
+				<c:if test = "${purchase.tranCode.trim() == '1' }">
+		 		현재 구매완료 상태 입니다.
+		 		</c:if>
+		 		<c:if test = "${purchase.tranCode.trim() == '2' }">
+		 		현재 배송중 상태 입니다.
+		 		</c:if>
+		 		<c:if test = "${purchase.tranCode.trim() == '3' }">
+		 		현재 배송완료 상태 입니다.
+		 		</c:if>
+				<c:if test = "${purchase.tranCode.trim() == '2' }">
+				<td align="left" id="delivery" data-param="${purchase.purchaseProd.prodNo}">물건도착</td>
+				</c:if> 
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
 </div>
+    <!-- PageNavigation Start... -->
+	<jsp:include page="../common/pageNavigator_new.jsp"/>
+	<!-- PageNavigation End... -->
+
 </body>
 </html>

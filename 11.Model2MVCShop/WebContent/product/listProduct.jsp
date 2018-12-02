@@ -44,7 +44,7 @@
 		$("form").attr("method" , "POST").attr("action" , "/product/listProduct?menu=${param.menu }").submit();
 	}
    
-   	var currentPage =  '${resultPage.currentPage}';
+   	var currentPage =  '${resultPage.currentPage}'-1;
     $(window).scroll(function() {
         if ($(window).scrollTop() == $(document).height() - $(window).height()) {
         $.ajax( 
